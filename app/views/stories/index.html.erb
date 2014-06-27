@@ -1,0 +1,47 @@
+<h1>Welcome to Rewsly</h1>
+
+<h5><%= link_to "Add new story", new_story_path %></h5>
+
+<%= form_tag "/", method: "Get" do %>
+  <%= text_field_tag :q %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
+<%= render "list" %> 
+
+<!-- </br>
+</br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Link</th>
+      <th>Upvotes</th>
+      <th>Category</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stories.each do |story| %>
+      <tr>
+        <td><%= link_to story.title, story %></td>
+        <td><%= story.link %></td>
+        <td><%= story.upvotes %></td>
+        <td><%= story.category %></td>
+        <td><%= link_to 'Show', story %></td>
+        <td><%= link_to 'Edit', edit_story_path(story) %></td>
+        <td><%= link_to 'Destroy', story, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br> -->
+<br/>
+<%= link_to 'Refresh', root_path %>
+<%= link_to 'New Storie', new_story_path %>

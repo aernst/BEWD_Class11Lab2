@@ -1,0 +1,66 @@
+<table>
+  <thead>
+    <tr>
+      <th>Title   </th>
+      <th>Link    </th>
+      <th>Upvotes  </th>
+      <th>Category </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @stories.each do |x| %>
+ <tbody>
+
+<tr>
+	<td><b><%= link_to x.title, story_path(x.id) %> </b></td> 
+	<td><%=x.link %> </td> 
+	<td> | <i> <%=x.upvotes %> </i> | </td> 
+	<td> - <%= x.category %> </td> 
+	<td><%= link_to 'Show', story_path(x.id) %></td>
+	<td><%= link_to "Edit", edit_story_path(x.id) %> </td> 
+	<td><%= link_to "Delete", x, method: :delete, data: { confirm: 'Are you sure?' } %></td> </br>
+
+</tr>
+<% end %>
+</tbody>
+</table>
+<br/>
+
+<h3>Stories with rating larger than 1</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Title   </th>
+      <th>Link    </th>
+      <th>Upvotes  </th>
+      <th>Category </th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+<% @stories.each do |x| %>
+
+<!--Question: Is this the best way to implement this? Are there alternatives? -->
+<% if x.upvotes > 1 %>
+<tbody>
+
+<tr>
+	<td><b><%= link_to x.title, story_path(x.id) %> </b></td> 
+	<td><%=x.link %> </td> 
+	<td> | <i> <%=x.upvotes %> </i> | </td> 
+	<td> - <%= x.category %> </td> 
+	<td><%= link_to 'Show', story_path(x.id) %></td>
+	<td><%= link_to "Edit", edit_story_path(x.id) %> </td> 
+	<td><%= link_to "Delete", x, method: :delete, data: { confirm: 'Are you sure?' } %></td> </br>
+
+
+</tr>
+<% end %>
+<% end %>
+</tbody>
+</table>
